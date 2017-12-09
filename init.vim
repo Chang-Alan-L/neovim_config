@@ -128,20 +128,12 @@ autocmd Rc BufEnter,BufWinEnter,BufRead,BufNewFile *
 autocmd Rc BufWrite * :Autoformat
 
 
-"" auto-save
-
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
-
-
 "" airline
 
 let g:airline_theme = 'luna'
 let g:airline_powerline_fonts = 1
 
 "" colorscheme
-
 highlight Normal      ctermbg=none
 highlight NonText     ctermbg=none
 highlight EndOfBuffer ctermbg=none
