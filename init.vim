@@ -16,10 +16,10 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug '907th/vim-auto-save'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'iCyMind/NeoSolarized'
 
-"" fuzzy finder
+" fuzzy finder
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -30,8 +30,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
-
-
 
 " pure vim
 
@@ -127,14 +125,27 @@ autocmd Rc BufEnter,BufWinEnter,BufRead,BufNewFile *
 			\ if &filetype == "" | set filetype=text | endif
 autocmd Rc BufWrite * :Autoformat
 
-
-"" airline
-
-let g:airline_theme = 'luna'
-let g:airline_powerline_fonts = 1
+"" lightline
+let g:lightline = {
+			\ 'colorscheme': 'solarized',
+			\ }
 
 "" colorscheme
+
+set termguicolors
+colorscheme NeoSolarized
+let g:neosolarized_contrast = "high"
+set background=dark
+
 highlight Normal      ctermbg=none
 highlight NonText     ctermbg=none
 highlight EndOfBuffer ctermbg=none
 highlight VertSplit cterm=none ctermfg=240 ctermbg=240
+
+"" Python settings global python so neovim can be used within virtualenvs
+let g:python_host_prog = '//anaconda/bin/python'
+let g:python3_host_prog = '//anaconda/bin/python3'
+
+"" Neovim
+" Terminal settings
+tnoremap <Esc> <C-\><C-n>
